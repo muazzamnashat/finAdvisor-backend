@@ -17,7 +17,6 @@ gem "puma", "~> 4.1"
 # gem 'bcrypt', '~> 3.1.7'
 gem "pry"
 gem "plaid"
-gem "nested_scaffold"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

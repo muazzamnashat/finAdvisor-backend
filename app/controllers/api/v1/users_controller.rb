@@ -1,5 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:transactions, :show, :update, :destroy]
+
+  # show current user transactions
+
+  def transactions
+    render json: @user.transactions.to_json(:include => { :category => { :only => :name } }, :except => [:created_at, :updated_at])
+  end
 
   # GET /users
   def index

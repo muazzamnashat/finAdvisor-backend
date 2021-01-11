@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :transactions
       resources :budgets
       resources :bills
+
+      get "/user_transactions", to: "users#transactions"
     end
   end
 end
