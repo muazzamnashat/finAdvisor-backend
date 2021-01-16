@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       resources :transactions
       resources :budgets
       resources :bills
-
+      post "/login", to: "auth#create"
+      get "/profile", to: "users#profile"
       get "/user_transactions", to: "users#transactions"
     end
   end

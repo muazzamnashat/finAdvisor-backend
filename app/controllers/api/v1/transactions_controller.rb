@@ -15,6 +15,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   # POST /transactions
   def create
+    # binding.pry
     @transaction = Transaction.new(transaction_params)
 
     if @transaction.save
