@@ -11,7 +11,7 @@ Category.destroy_all
 Bill.destroy_all
 Budget.destroy_all
 
-nashat = User.create(email: "nashatchy@gmail.com", first_name: "Muazzam")
+nashat = User.create(email: "nashatchy@gmail.com", first_name: "Muazzam",password: "123456")
 
 gas = Category.create(name: "gas")
 phone = Category.create(name: "Phone bill")
