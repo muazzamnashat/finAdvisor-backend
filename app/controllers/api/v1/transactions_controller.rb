@@ -16,10 +16,12 @@ class Api::V1::TransactionsController < ApplicationController
   # POST /transactions
   def create
     # binding.pry
+    
     @transaction = Transaction.new(transaction_params)
-
+    @transaction.user = current_user
+# binding.pry
     if @transaction.save
-      render json: @transaction, status: :created, location: @transaction
+      render json: @transaction.to_json(:include => { :category => { :only => :name } }, :except => [:created_at, :updated_at]), status: :created
     else
       render json: @transaction.errors, status: :unprocessable_entity
     end
