@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post "/login", to: "auth#create"
       get "/profile", to: "users#profile"
       get "/user_transactions", to: "users#transactions"
+      get "/total_spend", to:"users#total_spend"
     end
   end
 end

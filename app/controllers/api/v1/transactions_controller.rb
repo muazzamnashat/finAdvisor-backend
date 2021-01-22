@@ -29,7 +29,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   # PATCH/PUT /transactions/1
   def update
-    # binding.pry
+    
     if @transaction.update(transaction_params)
       render json: @transaction.to_json(:include => { :category => { :only => :name } }, :except => [:created_at, :updated_at])
     else
@@ -51,6 +51,6 @@ class Api::V1::TransactionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def transaction_params
-    params.require(:transaction).permit(:date, :description, :category_id, :amount, :user_id, :tags)
+    params.require(:transaction).permit(:date, :description, :category_id, :deposit, :amount, :user_id, :tags)
   end
 end

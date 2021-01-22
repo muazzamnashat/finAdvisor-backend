@@ -7,6 +7,10 @@ class Api::V1::UsersController < ApplicationController
     render json: current_user.transactions.to_json(:include => { :category => { :only => :name } }, :except => [:created_at, :updated_at])
   end
 
+  def total_spend 
+    render json: @user.total_spend
+  end
+
   def profile
     # binding.pry
     render json: { user: current_user}, status: :accepted
