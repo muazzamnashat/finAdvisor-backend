@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get "/profile", to: "users#profile"
       get "/user_transactions", to: "users#transactions"
       get "/total_spend", to:"users#total_spend"
+      get "/total_income", to:"users#total_income"
     end
   end
 end

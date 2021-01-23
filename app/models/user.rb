@@ -7,6 +7,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }
   
   def total_spend
-    Transaction.where(user_id: self.id).sum(:amount)
+    Transaction.where(user_id: self.id, deposit: false).group_by_month(:date).sum(:amount)
+  end
+
+  def total_income
+    Transaction.where(user_id: self.id, deposit: true).group_by_month(:date).sum(:amount)
   end
 end

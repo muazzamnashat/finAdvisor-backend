@@ -19,9 +19,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem "pry"
 gem "plaid"
-
+gem 'groupdate'
 gem "jwt", "~> 2.1"
-
+gem 'date'
 gem "active_model_serializers", "~> 0.10.7"
 
 # Use Active Storage variant

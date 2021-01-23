@@ -11,6 +11,10 @@ class Api::V1::UsersController < ApplicationController
     render json: @user.total_spend
   end
 
+  def total_income
+    render json: @user.total_income
+  end
+
   def profile
     # binding.pry
     render json: { user: current_user}, status: :accepted

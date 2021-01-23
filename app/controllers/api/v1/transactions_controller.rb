@@ -1,3 +1,5 @@
+require 'date'
+
 class Api::V1::TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :update, :destroy]
 
@@ -21,6 +23,7 @@ class Api::V1::TransactionsController < ApplicationController
     @transaction.user = current_user
 # binding.pry
     if @transaction.save
+    # binding.pry
       render json: @transaction.to_json(:include => { :category => { :only => :name } }, :except => [:created_at, :updated_at]), status: :created
     else
       render json: @transaction.errors, status: :unprocessable_entity
