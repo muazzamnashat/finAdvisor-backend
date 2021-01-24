@@ -32,7 +32,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   # PATCH/PUT /transactions/1
   def update
-    
+    # binding.pry
     if @transaction.update(transaction_params)
       render json: @transaction.to_json(:include => { :category => { :only => :name } }, :except => [:created_at, :updated_at])
     else
