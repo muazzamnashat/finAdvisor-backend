@@ -43,6 +43,7 @@ class Api::V1::TransactionsController < ApplicationController
   # DELETE /transactions/1
   def destroy
     @transaction.destroy
+    render json: @transaction 
   end
 
   private
