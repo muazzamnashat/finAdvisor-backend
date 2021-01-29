@@ -33,9 +33,7 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    
-    @user = User.create(email: params["email"].downcase, password: params["password"])
-    # binding.pry
+    @user = User.create(user_params)
     if @user.valid?
       @token = encode_token(user_id: @user.id)
       render json: { user: @user , jwt: @token}, status: :created
